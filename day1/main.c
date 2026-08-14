@@ -6,6 +6,7 @@ int main() {
     char dir;
     unsigned int n;
     while (scanf("%c%u\n", &dir, &n) != EOF) {
+        // Working under the assumption I have clean input
         n %= 100;
         switch (dir) {
             case 'R':
