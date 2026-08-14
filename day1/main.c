@@ -23,6 +23,6 @@ int main() {
         count += pos == 0;
     }
 
-    printf("%d\n", count);
+    printf("%u\n", count);
 }
 
