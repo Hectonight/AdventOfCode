@@ -2,4 +2,4 @@
 
 cd build || exit 1
 make
-./main < ../input.txt
+./part1 < ../input.txt

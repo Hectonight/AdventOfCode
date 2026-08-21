@@ -5,5 +5,6 @@ project(MyProject
         LANGUAGES C
 )
 
-add_executable(main main.c)
+add_executable(part1 part1.c)
+add_executable(part2 part2.c)
 
