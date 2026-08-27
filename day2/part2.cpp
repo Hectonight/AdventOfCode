@@ -88,9 +88,6 @@ uint64_t next(uint64_t n, const uint64_t chunk) {
 
     const uint64_t last = n / POW10[d - chunk];
     const uint64_t power = POW10[chunk];
-    // std::cout << "n: " << n << '\n';
-    // std::cout << "chunk: " << chunk << '\n';
-    // std::cout << "last: " << last << '\n';
 
     bool go_up = false;
     while (n >= POW10[chunk]) {
@@ -125,21 +122,9 @@ int main() {
             // Fail fast
             if (ilog10p1(upper) < i * 2) break;
             for (uint64_t x = next(lower, i); x <= upper; x = next(x+1, i)) {
-                // std::cout << "x: " << x << '\n';
-                // std::cout << "i: " << static_cast<uint64_t>(i) << '\n';
-
-                // if (x == 2626262626) {
-                //     std::cout << "i: " << i << '\n';
-                //     std::cout << "check_idx: " << check_idx << '\n';
-                //     std::cout << "lower: " << lower << '\n';
-                //     std::cout << "upper: " << upper << '\n';
-                //     std::cout << "already_checked(x, check_idx): " << already_checked(x, check_idx) << '\n';
-                // }
                 if (!already_checked(x, check_idx)) {
                     count += x;
-                    // std::cout << x << '\n';
                 }
-                // std::cout << "next: " << next(x+1, i) << '\n';
             }
             check_idx += CHECKS[check_idx] == i;
         }
