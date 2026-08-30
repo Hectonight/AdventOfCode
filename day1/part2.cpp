@@ -6,7 +6,7 @@ int main() {
     std::cin.tie(nullptr);
 
     unsigned int count = 0;
-    unsigned char pos = 50;
+    unsigned int pos = 50;
     char dir;
     unsigned int n;
     while (std::cin >> dir >> n) {
