@@ -1,12 +1,16 @@
 #!/bin/bash
 
 if [ -z "$1" ]; then
-    echo "Usage: $0 <day> [part]"
-    echo "Example: $0 1 2"
+    echo "Usage: $0 <day> [part] [extra]"
+    echo "Examples:"
+    echo "  $0 1       # Runs run_day1_part1"
+    echo "  $0 1 2     # Runs run_day1_part2"
+    echo "  $0 1 1 old # Runs run_day1_part1_old"
     exit 1
 fi
 
 DAY=$1
 PART=${2:-1}
+EXTRA=${3:+_$3}
 
-cmake --build build --target run_day"${DAY}"_part"${PART}"
+cmake --build build --target run_day"${DAY}"_part"${PART}""${EXTRA}"
