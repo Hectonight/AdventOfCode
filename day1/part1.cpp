@@ -8,10 +8,20 @@ int main() {
     unsigned int count = 0;
     unsigned int pos = 50;
     char dir;
-    unsigned int n;
-    while (std::cin >> dir >> n) {
+    while (std::cin.get(dir)) {
         // Working under the assumption I have clean input
-        n %= 100;
+
+        char d1 = '0';
+        char d2 = '0';
+        char curr;
+        std::cin.get(curr);
+        while (curr != '\n') {
+            d1 = d2;
+            d2 = curr;
+            std::cin.get(curr);
+        }
+
+        const unsigned int n = 10 * (d1 - '0') + (d2 - '0');
         if (dir == 'R') {
             pos += n;
             if (pos >= 100) {
