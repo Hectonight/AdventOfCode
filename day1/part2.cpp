@@ -8,14 +8,31 @@ int main() {
     unsigned int count = 0;
     unsigned int pos = 50;
     char dir;
-    unsigned int n;
-    while (std::cin >> dir >> n) {
+    while (std::cin.get(dir)) {
         // Working under the assumption I have clean input
-        // Compiler will shrink this to one equation
-        // Cannot use div as not unsigned overload
-        const unsigned int quot = n / 100;
-        const unsigned int rem = n % 100;
-        count += quot;
+
+        unsigned int hundreds = 0;
+        unsigned int rem = 0;
+
+        char d1, d2;
+
+        std::cin.get(d1);
+        std::cin.get(d2);
+        if (d2 == '\n') {
+            rem = d1 - '0';
+        } else {
+            char curr;
+            std::cin.get(curr);
+            while (curr != '\n') {
+                hundreds = 10 * hundreds + d1 - '0';
+                d1 = d2;
+                d2 = curr;
+                std::cin.get(curr);
+            }
+            rem = 10 * (d1 - '0') + d2 - '0';
+        }
+
+        count += hundreds;
         if (dir == 'R') {
             pos += rem;
             if (pos >= 100) {
